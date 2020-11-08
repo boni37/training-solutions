@@ -2,13 +2,12 @@ package week02;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Office {
-    List<MeetingRoom> meetingRooms = new ArrayList<>();
 
-    public void addMeetingRoom(MeetingRoom meetingRoom){
+    private List<MeetingRoom>  meetingRooms = new ArrayList<>();
 
+    public void addMeetingRoom(){
 
     }
 
