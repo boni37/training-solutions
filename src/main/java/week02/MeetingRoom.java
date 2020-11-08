@@ -6,7 +6,7 @@ public class MeetingRoom {
     private int length;
     private int width;
 
-    public MeetingRoom(String name, int length, int width) {
+    public MeetingRoom() {
         this.name = name;
         this.length = length;
         this.width = width;
