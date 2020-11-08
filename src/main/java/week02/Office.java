@@ -7,8 +7,8 @@ public class Office {
 
     private List<MeetingRoom>  meetingRooms = new ArrayList<>();
 
-    public void addMeetingRoom(String name, int width, int lenght){
-        meetingRooms.add(name, width, lenght);
+    public void addMeetingRoom(MeetingRoom meetingRoom){
+        meetingRooms.add(meetingRoom);
 
     }
 
