@@ -31,7 +31,7 @@ public class Controller {
     }
 
     public void printMenu() {
-        Scanner scanner = new Scanner(System.in);
+
         Office office = new Office();
         System.out.println("""
                 1. Tárgyalók sorrendben
@@ -42,6 +42,14 @@ public class Controller {
                 6. Keresés névtöredék alapján
                 7. Keresés terület alapján
                 """);
+    }
+
+
+
+
+    public void runMenu() {
+
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose one!");
         int chosenNum = scanner.nextInt();
         System.out.println();
@@ -60,18 +68,12 @@ public class Controller {
         } else if(chosenNum == 7){
             office.printAreas();
         }
-
-
-    }
-
-    public void runMenu() {
-
     }
 
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.readOffice();
         controller.printMenu();
-
+        controller.runMenu();
     }
 }
