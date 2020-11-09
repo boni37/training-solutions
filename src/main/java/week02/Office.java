@@ -5,38 +5,55 @@ import java.util.List;
 
 public class Office {
 
-    private List<MeetingRoom>  meetingRooms = new ArrayList<>();
+    public List<MeetingRoom> meetingRooms = new ArrayList<>();
 
-    public void addMeetingRoom(MeetingRoom meetingRoom){
+    public List<MeetingRoom> getMeetingRooms() {
+        return meetingRooms;
+    }
+
+
+    public void setMeetingRooms(List<MeetingRoom> meetingRooms) {
+        this.meetingRooms = meetingRooms;
+    }
+
+    public void addMeetingRoom(MeetingRoom meetingRoom) {
         meetingRooms.add(meetingRoom);
+    }
+
+    public void printNames() {
+        for (MeetingRoom meetingRoom: meetingRooms) {
+            System.out.println(meetingRoom.getName());
+        }
+    }
+
+    public void printNamesReverse() {
+        for (int i = meetingRooms.size(); i <= 0; i--) {
+            System.out.println(meetingRooms.get(i));
+        }
+    }
+
+    public void printEventNames() {
+       for (int i = 0; i < meetingRooms.size(); i += 2) {
+            System.out.println(meetingRooms.get(i));
+        }
+    }
+
+    public void printAreas() {
 
     }
 
-    public void printNames(){
+    public void printMeetingRoomsWithName() {
 
     }
 
-    public void printNamesReverse(){
+    public void printMeetingRoomsContains() {
 
     }
 
-    public void printEventNames(){
+    public void printAreasLargerThan(int area) {
 
     }
 
-    public void printAreas(){
 
-    }
-
-    public void printMeetingRoomsWithName(String name){
-
-    }
-
-    public void printMeetingRoomsContains(String part){
-
-    }
-
-    public void printAreasLargerThan(int area){
-
-    }
 }
+

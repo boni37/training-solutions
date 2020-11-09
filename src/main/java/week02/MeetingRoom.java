@@ -6,7 +6,7 @@ public class MeetingRoom {
     private int length;
     private int width;
 
-    public MeetingRoom() {
+    public MeetingRoom(String name, int length, int width) {
         this.name = name;
         this.length = length;
         this.width = width;
@@ -38,5 +38,14 @@ public class MeetingRoom {
 
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    @Override
+    public String toString() {
+        return "MeetingRoom{" +
+                "name='" + name + '\'' +
+                ", length=" + length +
+                ", width=" + width +
+                '}';
     }
 }
