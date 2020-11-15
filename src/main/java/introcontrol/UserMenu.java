@@ -11,7 +11,7 @@ public class UserMenu {
         int i = scanner.nextInt();
         if (i==1){
             System.out.println("Felhasználók listázása");
-        }else {
+        }if (i==2) {
             System.out.println("Felhasználók felvétele");
         }
     }
