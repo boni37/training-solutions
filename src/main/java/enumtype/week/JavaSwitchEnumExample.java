@@ -11,8 +11,8 @@ public class JavaSwitchEnumExample {
     public static void main(String args[])
     {
         Day[] DayNow = Day.values();
-        for(Day day: Day.values()){
-            System.out.println(day);
+        for(Day d: DayNow){
+            System.out.println(d);
         }
 
         for (Day Now : DayNow)
