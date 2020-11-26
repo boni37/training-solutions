@@ -9,11 +9,11 @@ public class Store {
 
     public List<Product> addProduct(){
         List<Product> products = new ArrayList<>();
-        products.add(new Product("Milk",2020,12,21));
-        products.add(new Product("Pork can",2020,12,21));
+        products.add(new Product("Milk",2020,11,30));
+        products.add(new Product("Pork can",2020,12,30));
         products.add(new Product("Beef can",2020,12,21));
         products.add(new Product("Beer",2020,12,21));
-        products.add(new Product("Whole grain bread",2020,12,21));
+        products.add(new Product("Whole grain bread",2020,11,21));
         return products;
     }
 
