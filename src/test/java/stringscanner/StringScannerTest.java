@@ -41,16 +41,16 @@ public class StringScannerTest {
         assertEquals(6, new StringScanner().readAndSumValues("1:2:3", ":"));
     }
 
-    /*@Test
+    @Test
     public void readAndSumValuesWithoutDelimiter() {
 
-        assertEquals(6, new StringScanner().readAndSumValues("1 2 3"));
+        assertEquals(6, new StringScanner().readAndSumValues("1 2 3",null));
 
         Exception ex = assertThrows(IllegalArgumentException.class, () -> new StringScanner().readAndSumValues("3:2:4", null));
         assertEquals("Incorrect parameter string!", ex.getMessage());
     }
 
-    @Test
+    /*@Test
     public void filterLinesWithWordOccurrences() {
         assertEquals("first word\nnext word", new StringScanner().filterLinesWithWordOccurrences("first word\napple\nnext word", "word"));
         assertEquals("", new StringScanner().filterLinesWithWordOccurrences("first\napple\nnext", "word"));

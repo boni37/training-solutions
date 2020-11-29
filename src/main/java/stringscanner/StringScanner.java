@@ -9,8 +9,8 @@ public class StringScanner {
     public int readAndSumValues(String intString, String delimiter){
         Scanner s = new Scanner(intString).useDelimiter(delimiter);
         int sum =0;
-        if (delimiter == null){
-            throw new NullPointerException("Incorrect parameter string!");
+        if (isEmptyOrNull(delimiter)){
+            throw new IllegalArgumentException("Incorrect parameter string!");
         }
         if(s.hasNextInt()){
             while(s.hasNext()){
@@ -36,9 +36,9 @@ public class StringScanner {
 
     }*/
 
-    public boolean isEmpty(String string){
-       return string == null || string == "";
-
+    public boolean isEmptyOrNull(String string){
+       if(string != null && !string.trim().isEmpty()) return false;
+       return true;
     }
 
 }
