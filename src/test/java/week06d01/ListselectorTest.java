@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ListselectorTest {
 
+    ListSelector listSelector = new ListSelector();
+
     @Test
     public void selectedListTest() {
         List<String> list = new ArrayList<>();
@@ -24,14 +26,18 @@ public class ListselectorTest {
         list.add("gránátalma");
         list.add("banán");
         list.add("szőlő");
-        assertEquals("[alma,citrom,eper,gránátalma]",new ListSelector().selectedList(list));
+        assertEquals("[alma,citrom,eper,gránátalma]",listSelector.selectedList(list));
     }
 
     @Test
-    public void selectedListTestWithNullList() throws IllegalArgumentException{
-        List<String> list = new ArrayList<>();
-        Exception ex = assertThrows(IllegalArgumentException.class, () -> new ListSelector().selectedList(list));
-        assertEquals("Incorrect parameter string!", ex.getMessage());
+    public void selectedListTestWithNullList() {
+        assertThrows(IllegalArgumentException.class, () -> listSelector.selectedList(null));
+    }
+
+    @Test
+    public void selectedListTestWithEmptyList(){
+        assertThrows(IllegalArgumentException.class, () ->listSelector.selectedList(new ArrayList<>()));
+
     }
 
 }
