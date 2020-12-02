@@ -3,7 +3,6 @@ package week06d03;
 public class WordEraser {
 
     public String words;
-    public String s2;
     public String word;
 
 
@@ -15,8 +14,7 @@ public class WordEraser {
             if(!wordsToArray[i].equalsIgnoreCase(word)){
                 sb.append(wordsToArray[i]);
             }
-        } s2 = sb.toString();
-        System.out.println(s2);
+        } System.out.println(sb.toString());
     }
 
     public static void main(String[] args) {
