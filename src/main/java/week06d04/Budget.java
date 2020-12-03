@@ -27,6 +27,6 @@ public class Budget {
 
     public static void main(String[] args) {
         Budget budget = new Budget();
-        budget.getItemsByMonth(8);
+        budget.getItemsByMonth(11);
     }
 }
