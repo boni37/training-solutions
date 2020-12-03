@@ -11,12 +11,10 @@ public class WordEraser {
         StringBuilder sb = new StringBuilder();
         String[] wordsToArray = words.split("\\s");
         for(int i=0; i< wordsToArray.length; i++){
-            System.out.println(wordsToArray[i]);
             if(!wordsToArray[i].equalsIgnoreCase(word)){
                 sb.append(wordsToArray[i]);
             }
-        } s2 = sb.toString();
-        return s2;
+        } return sb.toString();
     }
 
 }
