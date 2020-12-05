@@ -14,15 +14,16 @@ public class Biscuit {
         return gramAmount;
     }
 
-    public static void of(BiscuitType type, int gramAmount){
+    public static Biscuit of(BiscuitType type, int gramAmount){
         Biscuit biscuit = new Biscuit();
         biscuit.type = type;
         biscuit.gramAmount = gramAmount;
-        System.out.println("Type: "+biscuit.getType().toString()+" Amount: "+biscuit.getGramAmount());
+        return biscuit;
 }
 
     public static void main(String[] args) {
-        of(BiscuitType.OREO,250);
+        Biscuit us = of(BiscuitType.OREO,250);
+        System.out.println("Type: "+us.getType().toString()+" Amount: "+us.getGramAmount());
 
     }
 
