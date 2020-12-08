@@ -10,6 +10,4 @@ public class DigitSumTest {
         public void sumDigitTest(){
            assertEquals(21,DigitSum.sumOfDigits(123456));
         }
-
-
 }
