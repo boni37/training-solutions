@@ -18,35 +18,23 @@ public class Student {
     }
 
     public void grading(Mark mark){
-
+        marks.add(mark);
     }
 
     public double calculateAverage(){
+        return 3.0;
 
     }
 
     public double calculateSubjectAverage(Subject subject){
+        return 3.0;
 
     }
 
-    public boolean isEmpty(String){
-
+    public boolean isEmpty(String name){
+        return true;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(marks, student.marks) &&
-                Objects.equals(name, student.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(marks, name);
-    }
 
     @Override
     public String toString() {

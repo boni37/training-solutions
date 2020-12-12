@@ -18,7 +18,7 @@ public class Tutor {
     }
 
     public boolean tutorTeachingSubject(Subject subject){
-
+        return true;
     }
 
 
