@@ -6,20 +6,27 @@ import java.util.List;
 public class Tutor {
 
     private String name;
-    private List<Subject> taughtSubjets = new ArrayList<>();
+    private List<Subject> taughtSubjects = new ArrayList<>();
 
-    public Tutor(String name, List<Subject> taughtSubjets) {
+    public Tutor(String name, List<Subject> taughtSubjects) {
         this.name = name;
-        this.taughtSubjets = taughtSubjets;
+        this.taughtSubjects = taughtSubjects;
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean tutorTeachingSubject(Subject subject){
-        return true;
+    public List<Subject> getTaughtSubjects() {
+        return taughtSubjects;
     }
+
+    public boolean tutorTeachingSubject(Subject subject){
+        for(Subject i : taughtSubjects) {
+            if(i.getSubjectName().equals(subject.getSubjectName())) return true;
+        }return false;
+    }
+
 
 
 }
