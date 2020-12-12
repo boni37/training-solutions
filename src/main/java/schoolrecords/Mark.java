@@ -25,7 +25,9 @@ public class Mark {
         return tutor;
     }
 
+    @Override
     public String toString() {
         return markType.getDescription() + "("+markType.getValue()+ ")";
     }
+
 }
