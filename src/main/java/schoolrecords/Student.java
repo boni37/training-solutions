@@ -6,19 +6,18 @@ import java.util.Objects;
 
 public class Student {
 
-    private List<Mark> marks = new ArrayList<>();
     private String name;
-
-    public Student(List<Mark> marks, String name) {
-        this.marks = marks;
-        this.name = name;
-    }
+    private List<Mark> marks = new ArrayList<>();
 
     public Student(String name) {
         if(name == "") throw new IllegalArgumentException("Student name must not be empty!");
         this.name = name;
     }
 
+    public Student(String name, List<Mark> marks) {
+        this.name = name;
+        this.marks = marks;
+    }
 
     public String getName() {
         return name;
@@ -66,13 +65,8 @@ public class Student {
 
     }
 
-    public boolean isEmpty(String name){
-        return true;
-    }
-
-
     @Override
     public String toString() {
-        return name + " marks:" + MarkType.valueOf();
+        return name +" marks: " + marks;
     }
 }
