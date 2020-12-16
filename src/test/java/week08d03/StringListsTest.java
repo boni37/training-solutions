@@ -16,14 +16,14 @@ public class StringListsTest {
     public void unionStringListsTest(){
         List<String> first = Arrays.asList("one","two","three","four");
         List<String> second = Arrays.asList("five","six","seven","eight");
-        assertEquals("[one, two, three, four, five, six, seven, eight]",StringLists.stringListsUnion(first,second).toString());
+        assertEquals("one, two, three, four, five, six, seven, eight",StringLists.stringListsUnion(first,second).toString().replace("[","").replace("]",""));
     }
 
     @Test
     public void unionStringListsTestOther(){
         List<String> first = Arrays.asList("one","two","three","four");
         List<String> second = Arrays.asList("one","six","two","eight");
-        assertEquals("[one, two, three, four, six, eight]",StringLists.stringListsUnion(first,second).toString());
+        assertEquals("one, two, three, four, six, eight",StringLists.stringListsUnion(first,second).toString().replace("[","").replace("]",""));
     }
 
 }
