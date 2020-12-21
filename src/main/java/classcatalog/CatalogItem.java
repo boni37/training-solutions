@@ -15,6 +15,12 @@ public class CatalogItem implements Feature{
         this.features = features;
     }
 
+    public int fullLengthAtOneItem(){
+        return 12;
+    }
+
+
+
     public List<Feature> getFeatures() {
         return features;
     }
