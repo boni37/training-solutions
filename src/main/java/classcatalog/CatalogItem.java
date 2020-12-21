@@ -9,7 +9,7 @@ public class CatalogItem implements Feature{
     private int price;
     private String registrationNumber;
 
-    public CatalogItem(String registrationNumber, int price,,List<Feature> features) {
+    public CatalogItem(String registrationNumber, int price,List<Feature> features) {
         this.registrationNumber = registrationNumber;
         this.price = price;
         this.features = features;
