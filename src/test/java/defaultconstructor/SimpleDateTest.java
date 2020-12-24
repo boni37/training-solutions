@@ -1,8 +1,6 @@
 package defaultconstructor;
 
-import dafaultconstructor.SimpleDate;
 import org.junit.jupiter.api.Test;
-import week05d5.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
