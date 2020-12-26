@@ -1,4 +1,4 @@
-package introinheritencia;
+package introinheritence;
 
 public class BigBoss extends Boss{
 
