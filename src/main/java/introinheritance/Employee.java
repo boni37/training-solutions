@@ -1,4 +1,4 @@
-package introinheritence;
+package introinheritance;
 
 public class Employee extends Person{
 
