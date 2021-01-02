@@ -5,9 +5,9 @@ public class FerryBoat implements Ship, CanCarryGoods, CanCarryPassengers{
     private CanCarryPassengers canCarryPassengers;
     private CanCarryGoods canCarryGoods;
 
-    public FerryBoat(CanCarryPassengers canCarryPassengers, CanCarryGoods canCarryGoods) {
-        this.canCarryPassengers = canCarryPassengers;
-        this.canCarryGoods = canCarryGoods;
+    public FerryBoat(int maxCargoWeight, int maxPassengers) {
+        canCarryPassengers = new CanCarryPassengersBehaviour(maxPassengers);
+        canCarryGoods = new CanCarryGoodsBehaviour(maxCargoWeight);
     }
 
     @Override
@@ -17,16 +17,16 @@ public class FerryBoat implements Ship, CanCarryGoods, CanCarryPassengers{
 
     @Override
     public int getCargoWeight() {
-        return 0;
+        return canCarryGoods.getCargoWeight();
     }
 
     @Override
     public int loadPassenger(int passengers) {
-        return canCarryPassengers.getPassengers();
+        return canCarryPassengers.loadPassenger(passengers);
     }
 
     @Override
     public int getPassengers() {
-        return 0;
+        return canCarryPassengers.getPassengers();
     }
 }

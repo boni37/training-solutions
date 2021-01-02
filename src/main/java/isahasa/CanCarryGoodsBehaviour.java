@@ -9,9 +9,6 @@ public class CanCarryGoodsBehaviour implements CanCarryGoods{
         this.maxCargoWeight = maxCargoWeight;
     }
 
-    public int getMaxCargoWeight() {
-        return maxCargoWeight;
-    }
 
     @Override
     public int getCargoWeight() {

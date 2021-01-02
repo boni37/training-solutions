@@ -9,14 +9,11 @@ public class CanCarryPassengersBehaviour implements CanCarryPassengers{
         this.maxPassengers = maxPassengers;
     }
 
-    public int getMaxPassengers() {
-        return maxPassengers;
-    }
-
     @Override
     public int getPassengers() {
         return passengers;
     }
+
     @Override
     public int loadPassenger(int passengers) {
         int remainder = 0;
