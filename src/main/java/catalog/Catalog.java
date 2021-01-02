@@ -1,4 +1,4 @@
-package classcatalog;
+package catalog;
 
 import java.util.ArrayList;
 import java.util.List;

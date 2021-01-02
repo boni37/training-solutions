@@ -1,4 +1,4 @@
-package classcatalog;
+package catalog;
 
 public class SearchCriteria {
 
