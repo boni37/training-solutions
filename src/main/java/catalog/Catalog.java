@@ -3,14 +3,15 @@ package catalog;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Catalog {
+public class Catalog{
+
     List<CatalogItem> catalogItems = new ArrayList<>();
 
-    public void additem(CatalogItem item){
-
+    public void addItem(CatalogItem item){
+        catalogItems.add(item);
     }
 
-    public double averagePageNumber(int page){
+    public double averagePageNumberOver(int page){
         return 12.0;
     }
 
