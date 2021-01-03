@@ -6,18 +6,21 @@ import java.util.List;
 
 public class CatalogItem {
 
-    public List<Feature> features;
+    public List<Feature> features = new ArrayList<>();
     private int price;
     private String registrationNumber;
 
-    public CatalogItem(String registrationNumber, int price, List<Feature> features) {
+    public CatalogItem(String registrationNumber, int price, Feature... feature) {
         this.registrationNumber = registrationNumber;
         this.price = price;
-        this.features = features;
+        for(Feature actual:feature){
+            features.add(actual);
+        }
     }
 
     public int fullLengthAtOneItem(){
-        return 12;
+
+        return AudioFeatures.getLength();
     }
 
     public List<String> getContributors() {
@@ -37,7 +40,7 @@ public class CatalogItem {
     }
 
     public int numberOfPagesAtOneItem(){
-        return 2;
+        return PrintedFeatures.getNumberOfPages();
     }
 
     public List<Feature> getFeatures() {
@@ -51,9 +54,6 @@ public class CatalogItem {
     public String getRegistrationNumber() {
         return registrationNumber;
     }
-
-
-
 
 
 

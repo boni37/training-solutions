@@ -6,7 +6,7 @@ import java.util.List;
 public class PrintedFeatures implements Feature{
 
     private List<String> authors = new ArrayList<>();
-    private int numberOfPages;
+    private static int numberOfPages;
     private String title;
 
     public PrintedFeatures(String title, int numberOfPages, List<String> authors) {
@@ -15,7 +15,7 @@ public class PrintedFeatures implements Feature{
         this.title = title;
     }
 
-    public int getNumberOfPages() {
+    public static  int getNumberOfPages() {
         return numberOfPages;
     }
 
@@ -25,7 +25,11 @@ public class PrintedFeatures implements Feature{
 
     @Override
     public List<String> getContributors() {
-        return null;
+        List<String> contributors = new ArrayList<>();
+        for(int i=0; i < authors.size();i++){
+           contributors.add(authors.get(i));
+        }
+        return contributors;
     }
 
 }

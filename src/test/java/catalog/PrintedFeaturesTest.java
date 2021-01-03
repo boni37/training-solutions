@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrintedFeaturesTest {
 
-   /* @Test
+    @Test
     public void testCreate() {
         PrintedFeatures audioFeatures = new PrintedFeatures("Harry Potter", 600, Arrays.asList("J.K. Rowling", "Someoneelse"));
         assertEquals(2, audioFeatures.getContributors().size());
@@ -44,5 +44,5 @@ public class PrintedFeaturesTest {
             new PrintedFeatures("Harry Potter", 600, null);
         });
 
-    }*/
+    }
 }

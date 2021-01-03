@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CatalogItemTest {
 
-   /*CatalogItem catalogItem = new CatalogItem("R-1", 300,
+   CatalogItem catalogItem = new CatalogItem("R-1", 300,
             new AudioFeatures("Night Visions", 185, Arrays.asList("Dan Raynolds"), Arrays.asList("Imagine Dragons")),
             new PrintedFeatures("Harry Potter", 600, Arrays.asList("J.K. Rowling")),
             new AudioFeatures("Piece of Mind", 200, Arrays.asList("Steve Harris"), Arrays.asList("Iron Maiden"))
@@ -25,7 +25,7 @@ public class CatalogItemTest {
     @Test
     public void testGetFeaturesGetAudioContributors() {
 
-        List<String> result = Arrays.asList("Imagine Dragons", "Dan Raynolds");
+        List<String> result = Arrays.asList("Dan Raynolds","Imagine Dragons" );
 
         assertEquals(result, catalogItem.getFeatures().get(0).getContributors());
 
@@ -79,7 +79,7 @@ public class CatalogItemTest {
     public void testHasPrintedFeature() {
         assertTrue(catalogItem.hasAudioFeature());
         assertTrue(catalogItem2.hasPrintedFeature());
-    }*/
+    }
 
 
 }

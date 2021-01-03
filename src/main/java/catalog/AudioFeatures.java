@@ -6,9 +6,9 @@ import java.util.List;
 
 public class AudioFeatures implements Feature{
 
-    private List<String> composer;
-    private int length;
-    private List<String> performers;
+    private List<String> composer = new ArrayList<>();
+    private static int length;
+    private List<String> performers = new ArrayList<>();
     private String title;
 
 
@@ -26,7 +26,15 @@ public class AudioFeatures implements Feature{
         this.performers = performers;
     }
 
-    public int getLength() {
+    public List<String> getComposer() {
+        return composer;
+    }
+
+    public List<String> getPerformers() {
+        return performers;
+    }
+
+    public static int getLength() {
         return length;
     }
 
@@ -36,12 +44,16 @@ public class AudioFeatures implements Feature{
 
     @Override
     public List<String> getContributors() {
-        return null;
+        List<String> contributors = new ArrayList<>();
+        for(int i=0; i < composer.size();i++){
+            contributors.add(composer.get(i));
+            for(int j=0; j < performers.size();j++){
+                contributors.add(performers.get(j));
+            }
+        }
+        return contributors;
     }
 
-    public static void main(String[] args) {
-        AudioFeatures audioFeatures = new AudioFeatures("Night Visions", 185, Arrays.asList("Dan Raynolds"), Arrays.asList("Imagine Dragons"));
-        System.out.println(audioFeatures.title+audioFeatures.length+audioFeatures.composer+audioFeatures.performers);
-    }
+
 
 }
