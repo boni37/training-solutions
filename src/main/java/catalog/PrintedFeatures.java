@@ -10,9 +10,10 @@ public class PrintedFeatures implements Feature{
     private String title;
 
     public PrintedFeatures(String title, int numberOfPages, List<String> authors) {
-        this.authors = authors;
-        this.numberOfPages = numberOfPages;
+        if(title.equals("") || numberOfPages<1 || authors == null)throw new IllegalArgumentException("Empty title");
         this.title = title;
+        this.numberOfPages = numberOfPages;
+        this.authors = authors;
     }
 
     public static  int getNumberOfPages() {

@@ -16,7 +16,10 @@ public class Catalog{
     }
 
     public void deleteItemByRegistrationNumber(String registrationNumber){
-
+        for(int i = 0; i < catalogItems.size(); i++){
+            if (catalogItems.get(i).getRegistrationNumber().equals(registrationNumber))
+                catalogItems.remove(i);
+        }
     }
 
     public List<CatalogItem> findByCriteria(SearchCriteria criteria){

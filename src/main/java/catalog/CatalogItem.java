@@ -19,8 +19,11 @@ public class CatalogItem {
     }
 
     public int fullLengthAtOneItem(){
-
-        return AudioFeatures.getLength();
+        int fulLenght = 0;
+        for(Feature feature:features){
+            fulLenght += AudioFeatures.getLength();
+        }
+        return fulLenght;
     }
 
     public List<String> getContributors() {
@@ -32,11 +35,17 @@ public class CatalogItem {
     }
 
     public boolean hasAudioFeature(){
-        return true;
+        for(int i=0; i< features.size(); i++){
+            if(features.get(i).getContributors()!= null)return true;
+        }
+        return false;
     }
 
     public boolean hasPrintedFeature(){
-        return true;
+        for(int i=0; i< features.size(); i++){
+            if(features.get(i)!= null)return true;
+        }
+        return false;
     }
 
     public int numberOfPagesAtOneItem(){
