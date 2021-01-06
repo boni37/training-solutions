@@ -26,9 +26,10 @@ public class ArraySelector {
         for(int i=0; i< numbers.length; i += 2){
             if(numbers.length <= 2){
                 s = s.concat(String.valueOf(numbers[i]));
+                return "[" + s + "]";
             }else
-                s = s.concat(String.valueOf(numbers[i]))+",";
+                s = s.concat(String.valueOf(numbers[i])+", ");
 
-        }return "[" + s + "]";
+        }return "[" + s.substring(0,s.length()-2) + "]";
     }
 }
