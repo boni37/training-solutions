@@ -13,7 +13,7 @@ public class Skill {
         return name;
     }
 
-    /*public String getLevel() {
-        return level;
-    }*/
+    public String getLevel() {
+        return name.substring(name.indexOf("("),name.length()-1);
+    }
 }

@@ -30,9 +30,14 @@ public class Cv{
         return skills;
     }
 
-   /* public void addSkills(String... skill){
-        for(String actual :skills){
+   public void addSkills(String... skill){
+        for(Skill actual :skills){
             skills.add(actual);
         }
-    }*/
+    }
+
+    public int findSkillLevelByName(String skill){
+        return 2;
+
+    }
 }
