@@ -7,7 +7,7 @@ public class Track {
 
     private List<TrackPoint> trackPoints = new ArrayList<>();
     private double mockReturn = 5.2;
-    private Coorinate mockCoordinate;
+    private Coordinate mockCoordinate;
 
 
 
@@ -15,11 +15,11 @@ public class Track {
         trackPoints.add(trackPoint);
     }
 
-    public Coorinate findMaximumCoordinate(){
+    public Coordinate findMaximumCoordinate(){
         return mockCoordinate;
     }
 
-    public Coorinate findMinimumCoordinate(){
+    public Coordinate findMinimumCoordinate(){
         return mockCoordinate;
     }
 

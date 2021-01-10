@@ -2,16 +2,16 @@ package activity;
 
 public class TrackPoint {
 
-    private Coorinate coorinate;
+    private Coordinate coordinate;
     private double elevation;
 
-    public TrackPoint(Coorinate coorinate, double elevation) {
-        this.coorinate = coorinate;
+    public TrackPoint(Coordinate coordinate, double elevation) {
+        this.coordinate = coordinate;
         this.elevation = elevation;
     }
 
-    public Coorinate getCoorinate() {
-        return coorinate;
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
     public double getElevation() {
