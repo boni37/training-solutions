@@ -22,10 +22,24 @@ public class Activities {
     }
 
     public int numberOfTrackActivities(){
-        return mockInt;
+        int numberTracks = 0;
+        for(Activity activity: activities){
+            if(activity.getType() == (ActivityType.BIKING)||(activity.getType() == (ActivityType.RUNNING)||(activity.getType() == (ActivityType.HIKING)))){
+                numberTracks +=1;
+            }
+        }
+
+        return numberTracks;
     }
 
     public int numberOfWithoutTrackActivities(){
-        return mockInt;
+        int numberTracks = 0;
+        for(Activity activity: activities){
+            if(activity.getType() == (ActivityType.BASKETBALL)){
+                numberTracks +=1;
+            }
+        }
+
+        return numberTracks;
     }
 }

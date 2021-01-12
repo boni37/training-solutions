@@ -25,6 +25,6 @@ public class ActivityWithTrack implements Activity{
 
     @Override
     public ActivityType getType() {
-        return null;
+        return getActivityType();
     }
 }

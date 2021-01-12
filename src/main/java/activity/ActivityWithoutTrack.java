@@ -8,6 +8,10 @@ public class ActivityWithoutTrack implements Activity{
         this.activityType = activityType;
     }
 
+    public ActivityType getActivityType() {
+        return activityType;
+    }
+
     @Override
     public double getDistance() {
         return 0;
@@ -15,6 +19,6 @@ public class ActivityWithoutTrack implements Activity{
 
     @Override
     public ActivityType getType() {
-        return null;
+        return getActivityType();
     }
 }
