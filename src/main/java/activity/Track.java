@@ -32,7 +32,12 @@ public class Track {
     }
 
     public double getFullElevation(){
-        return mockReturn;
+        double sumElevation = 0.00;
+        for(int i = 1; i < trackPoints.size(); i++){
+            if(trackPoints.get(i-1).getElevation() < trackPoints.get(i).getElevation()){
+                sumElevation += trackPoints.get(i).getElevation() -trackPoints.get(i-1).getElevation();
+            }
+        }return sumElevation;
     }
 
     public double getRectangleArea(){

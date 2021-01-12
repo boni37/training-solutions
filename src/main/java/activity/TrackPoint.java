@@ -19,6 +19,9 @@ public class TrackPoint {
     }
 
     public double getDistanceFrom(TrackPoint point){
+        TrackPoint trackPoint;
+
+
         return 3.0;
     }
 }
