@@ -21,8 +21,9 @@ public class TrackPoint {
 
     public double getDistanceFrom(TrackPoint point){
         TrackPoint trackPoint = new TrackPoint(new Coordinate(12.5, 34.89), 123);
-        double distance = Math.sqrt(Math.pow(point.coordinate.getLatitude()-trackPoint.coordinate.getLatitude(),2)+Math.pow(point.coordinate.getLongitude()-trackPoint.coordinate.getLongitude(),2));
-        System.out.println(distance);
+        double distance = Math.sqrt(Math.pow(point.coordinate.getLatitude()-trackPoint.coordinate.getLatitude(),2)
+                +Math.pow(point.coordinate.getLongitude()-trackPoint.coordinate.getLongitude(),2)
+                +Math.pow(point.getElevation()-trackPoint.getElevation(),2));
         return distance;
     }
 }
