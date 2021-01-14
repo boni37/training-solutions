@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FilesSum {
 
-    public static void main(String[] args) {
+    public static Integer sumNumbers(){
         int numSum = 0;
         for(int i = 0; i< 100; i++) {
             String fileName = "number"+i +".txt";
@@ -24,7 +24,10 @@ public class FilesSum {
                     e.printStackTrace();
                 }
             }continue;
-        }
-        System.out.println(numSum);
+        } return numSum;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(sumNumbers());
     }
 }
