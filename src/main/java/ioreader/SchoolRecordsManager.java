@@ -36,8 +36,8 @@ public class SchoolRecordsManager {
                 IOException ioe){
             throw new IllegalStateException("Can not read file",ioe);
         }for(Student actual:students){
-            String average = String.format(" average = %2.2f",actual.averegaCalculate(actual.getName(),actual.getGrades()));
-            System.out.println(actual.getName()+actual.getGrades()+average+", Is rising ="+ actual.isRising(actual.getName(),actual.getGrades()));
+            String average = String.format(", average = %2.2f",actual.averegaCalculate(actual.getName(),actual.getGrades()));
+            System.out.println(actual.getName()+average+", Is rising ="+ actual.isRising(actual.getName(),actual.getGrades()));
         }
 
     }
