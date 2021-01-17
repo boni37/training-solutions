@@ -1,0 +1,13 @@
+ 1:         The_Artists Votes =13
+ 2:            The_Band Votes =8
+ 3:          Motorcycle Votes =14
+ 4:                Bike Votes =10
+ 5:   Stand_Up_Comedian Votes =10
+ 6:            Magician Votes =9
+ 7:        Best_Painter Votes =11
+ 8:      Elvis_Imitator Votes =12
+ 9:              Singer Votes =6
+10:        Illusionists Votes =4
+11:  Actors_From_Shadow Votes =15
+12:               Model Votes =3
+Winner: Actors_From_Shadow
