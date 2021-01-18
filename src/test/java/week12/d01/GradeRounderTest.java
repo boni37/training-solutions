@@ -17,7 +17,7 @@ class GradeRounderTest {
         }
         int[] gradesAfterRound =  new GradeRounder().roundGrades(grades);
         for(int i= 0; i< grades.length;i++){
-            System.out.println("Original: "+ grades[i]+ "  After round:"+ gradesAfterRound[i]);
+            System.out.println("Original: "+ String.format("%3d",grades[i])+ "  After round:"+ String.format("%3d",gradesAfterRound[i]));
         }
     }
 
