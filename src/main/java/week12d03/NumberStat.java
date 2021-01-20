@@ -18,12 +18,12 @@ public class NumberStat {
         }
         int min=0;
         for(int i = 1; i< results.size();i++){
-            if(results.get(i)< results.get(min)) min = i;
-        }return results.get(0);
+            if(results.get(i) < results.get(min)) min = i;
+        }return results.get(min);
     }
 
     public static void main(String[] args) {
         NumberStat numberStat =new NumberStat();
-        System.out.println(numberStat.countNumAppearOnce(new ArrayList<>(Arrays.asList(1,1,5,3,4,5,6,5,6,4,1,6,5,4))));
+        System.out.println(numberStat.countNumAppearOnce(new ArrayList<>(Arrays.asList(1,1,5,3,4,5,6,5,6,4,1,6,5,4,2,7,9))));
     }
 }
