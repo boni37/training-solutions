@@ -13,7 +13,6 @@ public class SecretDatReader {
         Path file = Path.of("secret.dat");
         try (InputStream reader = new BufferedInputStream(Files.newInputStream(file))){
             byte[] bytes = new byte[500];
-
             int size;
             while((size= reader.read(bytes))>0){
                 char[] ch = new char[bytes.length];
@@ -22,6 +21,7 @@ public class SecretDatReader {
                     ch[i] = (char)bytes[i];
                 }
                 System.out.print(ch);
+                System.out.println("Thanks for the funny task!");
             }
         } catch (IOException ioe) {
            throw new IllegalStateException("Can not read file",ioe);
