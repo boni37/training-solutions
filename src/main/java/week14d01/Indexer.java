@@ -6,7 +6,6 @@ public class Indexer{
 
     public Map<Character, List<String>> index(List<String> names){
         Map<Character,List<String>> map= new HashMap<>();
-        Collections.sort(names);
         for(String actual:names){
             Character firstCharacter = actual.toUpperCase().charAt(0);
             if(!map.containsKey(firstCharacter)){
