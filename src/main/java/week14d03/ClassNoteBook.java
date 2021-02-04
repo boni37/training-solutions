@@ -22,6 +22,11 @@ public class ClassNoteBook {
         students.get(0).addGradesToList("History",3);
         students.get(0).addGradesToList("Biology",5);
         students.get(0).addGradesToList("English",5);
+        students.add(new Student("Jane Doe"));
+        students.get(1).addGradesToList("History",2);
+        students.get(1).addGradesToList("History",2);
+        students.get(1).addGradesToList("Biology",5);
+        students.get(1).addGradesToList("English",5);
         classNoteBook.sortNotebook(students);
     }
 
