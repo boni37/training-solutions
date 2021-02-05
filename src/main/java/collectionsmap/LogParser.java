@@ -28,8 +28,8 @@ public class LogParser {
                   String login = line[2];
                   Entry entry = new Entry(ipAddress,date,login);
                   if(!logNote.containsKey(ipAddress)){
-                      logNote.put(ipAddress,new ArrayList<>());
-                  }logNote.get(ipAddress).add(entry);
+                      logNote.put(entry.getIpAddress(),new ArrayList<>());
+                  }logNote.get(entry.getIpAddress()).add(entry);
 
               }
           }
