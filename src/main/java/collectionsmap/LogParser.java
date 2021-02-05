@@ -27,7 +27,7 @@ public class LogParser {
                   LocalDate date = LocalDate.of(year, month, day);
                   String login = line[2];
                   Entry entry = new Entry(ipAddress,date,login);
-                  if(!logNote.containsKey(ipAddress)){
+                  if(!logNote.containsKey(entry.getIpAddress())){
                       logNote.put(entry.getIpAddress(),new ArrayList<>());
                   }logNote.get(entry.getIpAddress()).add(entry);
 
