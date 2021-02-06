@@ -5,10 +5,10 @@ public class Book implements Comparable<Book> {
     private String title;
     private String author;
 
-    public Book(int id, String title, String author) {
+    public Book(int id, String author, String title) {
         this.id = id;
-        this.title = title;
         this.author = author;
+        this.title = title;
     }
 
     public int getId() {
@@ -25,7 +25,7 @@ public class Book implements Comparable<Book> {
 
     @Override
     public String toString() {
-        return id +" " + title + " "+ author;
+        return id +" " +  author + " " +title;
     }
 
     @Override
