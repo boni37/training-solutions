@@ -23,10 +23,9 @@ public class CovidCaseReport {
                     mapOfCases.put(keyMapOfCases,valueMapOfCases);
                 }
             }
-            System.out.println(mapOfCases);
             Integer maxValue = Collections.max(mapOfCases.values());
             for(Map.Entry entry: mapOfCases.entrySet()){
-                if(entry.getValue()==maxValue) System.out.println(entry.getKey());
+                if(entry.getValue()==maxValue) System.out.println("The most cases was in: "+entry.getKey()+" week. Cases number was: "+ entry.getValue());
             }
 
         } catch (IOException ioException) {
