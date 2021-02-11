@@ -28,8 +28,8 @@ public class CovidCaseReport {
                 if(entry.getValue()==maxValue) System.out.println("The most cases was in: "+entry.getKey()+" week. Cases number was: "+ entry.getValue());
             }
 
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+        } catch (IOException ioe) {
+            throw new IllegalStateException("Can not read file",ioe);
         }
     }
 
