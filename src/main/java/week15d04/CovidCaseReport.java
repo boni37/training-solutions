@@ -4,28 +4,43 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collections;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
-public class CovidCaseReport {
+public class CovidCaseReport{
+
+    private String week;
+    private int caseNum;
+
+
+
+    public CovidCaseReport(String week, int caseNum) {
+        this.week = week;
+        this.caseNum = caseNum;
+    }
 
     public static void main(String[] args) {
         Path file = Path.of("data.csv");
-        Map<String,Integer> mapOfCases = new TreeMap<>();
+//        Map<String,Integer> mapOfCases = new TreeMap<>();
+        List<CovidCaseReport> reports = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(file)){
             String line;
             while((line= reader.readLine())!=null){
                 if(line.contains("Hungary")){
                     String[] dataOfReport = line.split(",");
                     String keyMapOfCases = dataOfReport[1];
-                    Integer valueMapOfCases = Integer.parseInt(dataOfReport[2]);
-                    mapOfCases.put(keyMapOfCases,valueMapOfCases);
+                    int valueMapOfCases = Integer.parseInt(dataOfReport[2]);
+                    reports.add(new CovidCaseReport(keyMapOfCases,valueMapOfCases));
                 }
             }
-            Integer maxValue = Collections.max(mapOfCases.values());
-            for(Map.Entry entry: mapOfCases.entrySet()){
-                if(entry.getValue()==maxValue) System.out.println("The most cases was in: "+entry.getKey()+" week. Cases number was: "+ entry.getValue());
+            Collections.sort(reports, new Comparator<CovidCaseReport>() {
+                @Override
+                public int compare(CovidCaseReport o1, CovidCaseReport o2) {
+                    return -(o1.caseNum-o2.caseNum);
+                }
+            });
+
+            for(int i=0; i< 3; i++){
+                System.out.println("The most cases was in: "+reports.get(i).week +" week. Cases number was: "+ reports.get(i).caseNum);
             }
 
         } catch (IOException ioe) {
