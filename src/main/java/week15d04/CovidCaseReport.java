@@ -32,7 +32,7 @@ public class CovidCaseReport{
                     reports.add(new CovidCaseReport(keyMapOfCases,valueMapOfCases));
                 }
             }
-            Collections.sort(reports, new Comparator<CovidCaseReport>() {
+            Collections.sort(reports, new Comparator<>() {
                 @Override
                 public int compare(CovidCaseReport o1, CovidCaseReport o2) {
                     return -(o1.caseNum-o2.caseNum);
