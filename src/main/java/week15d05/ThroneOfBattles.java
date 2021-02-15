@@ -19,7 +19,7 @@ public class ThroneOfBattles {
             }
             String[] parts = line.split(",");
             for(int i= 5; i < 13; i++){
-                if(!(parts[i].isEmpty())&linesOfBattles.containsKey(parts[i])){
+                if(!(parts[i].isBlank())&linesOfBattles.containsKey(parts[i])){
                     linesOfBattles.put(parts[i],linesOfBattles.get(parts[i])+1);
                 }else{
                     linesOfBattles.put(parts[i],1);
