@@ -5,6 +5,7 @@ import org.mariadb.jdbc.MariaDbDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class ActivityTrackerMain {
@@ -23,8 +24,11 @@ public class ActivityTrackerMain {
             dataSource.setUser("activitytracker");
             dataSource.setPassword("activitytracker");
             Connection con = dataSource.getConnection();
-            PreparedStatement stmt = con.prepareStatement("insert into activites (startTime,activity_desc,activity_type) values(?,?,?)");
-            stmt.
+            PreparedStatement stmt = con.prepareStatement("insert into activities (startTime,activity_desc,activity_type) values(?,?,?)");
+            stmt.setTimestamp(1, Timestamp.valueOf(activity1.getStartTime()));
+            stmt.setString(2,activity1.getDesc());
+            stmt.setString(3,activity1.getType().toString());
+            stmt.executeUpdate();
         } catch (SQLException sqlException) {
             throw new IllegalArgumentException("Can not read",sqlException);
         }
