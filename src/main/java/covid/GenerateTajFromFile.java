@@ -11,21 +11,21 @@ public class GenerateTajFromFile {
     private List<PersonForVacination> personForVacinationList = new ArrayList<>();
 
     public String generateTajCode(String tajCode){
-        int sum = Character.getNumericValue(tajCode.charAt(0));
-        for(int i = 1; i<tajCode.length(); i++){
+        int sum = Character.getNumericValue(tajCode.charAt(0))*7;
+        for(int i = 1; i<8; i++){
             if(i%2!=0){
                 sum += Character.getNumericValue(tajCode.charAt(i))*3;
             }else sum += Character.getNumericValue(tajCode.charAt(i))*7;
-
         }
-        tajCode = tajCode + sum;
-        return tajCode;
+        System.out.println(sum%10);
+        String taj = tajCode + sum%10;
+        return taj;
     }
 
     private static void writeToFile(List<PersonForVacination> personForVacinationList){
         try(BufferedWriter writer = Files.newBufferedWriter(Path.of("src","main","resources","covid","ListWithValidTaj.csv"))){
             for(PersonForVacination person : personForVacinationList){
-                writer.write(person.getName()+","+person.getZipCode()+","+person.getAge()+","+person.getEmailAddress()+","+person.getTajCode());
+                writer.write(person.getName()+","+person.getZipCode()+","+person.getAge()+","+person.getEmailAddress()+","+person.getTajCode()+"\n");
             }
         } catch (IOException ioException) {
             throw new IllegalArgumentException("Can not write file",ioException);
@@ -45,8 +45,6 @@ public class GenerateTajFromFile {
                 String tajCode = new GenerateTajFromFile().generateTajCode(fields[5]);
                 personForVacinationList.add(new PersonForVacination(name,zipCode,age,emailAddress,tajCode));
             }
-            System.out.println(personForVacinationList);
-
         } catch (IOException ioException) {
             throw new IllegalStateException("Can not read file",ioException);
         }

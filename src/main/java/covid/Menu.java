@@ -28,12 +28,14 @@ public class Menu {
         System.out.println();
         Scanner scanner = new Scanner(System.in);
         int item = scanner.nextInt();
-//        scanner.nextLine();
         switch (item) {
             case 1: {
                new Registration().registratePerson();
+               break;
             }
             case 2: {
+                new MassRegistration().readFileName();
+                break;
             }
             case 3: {
             }

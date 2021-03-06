@@ -20,10 +20,7 @@ public class CovidDao {
 
     public void writeListToDatabase(List<PersonForVacination> personForVacinationList){
         try {
-            MariaDbDataSource dataSource= new MariaDbDataSource();
-            dataSource.setUrl("jdbc:mariadb://localhost:3306/covid?useUnicode=true");
-            dataSource.setUser("covid");
-            dataSource.setPassword("covid");
+            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = dataSource.getConnection();
             PreparedStatement stmt = conn.prepareStatement("insert into citizen(citizen_name,zip,age,email,taj) values (?,?,?,?,?)" );
             for(PersonForVacination person: personForVacinationList){
@@ -38,5 +35,13 @@ public class CovidDao {
             catch (SQLException sqlException) {
             throw new IllegalStateException("Can not connect",sqlException);
         }
+    }
+
+    private MariaDbDataSource initializeDataSource() throws SQLException {
+        MariaDbDataSource dataSource= new MariaDbDataSource();
+        dataSource.setUrl("jdbc:mariadb://localhost:3306/covid?useUnicode=true");
+        dataSource.setUser("covid");
+        dataSource.setPassword("covid");
+        return dataSource;
     }
 }
