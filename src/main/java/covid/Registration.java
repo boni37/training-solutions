@@ -1,20 +1,22 @@
 package covid;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Registration {
 
-    private PersonForVacination person;
+    private List<PersonForVacination> persons = new ArrayList<>();
 
     public Registration() {
     }
 
-    public Registration(PersonForVacination person) {
-        this.person = person;
+    public Registration(List<PersonForVacination> persons) {
+        this.persons = persons;
     }
 
-    public PersonForVacination getPerson() {
-        return person;
+    public List<PersonForVacination> getPersons() {
+        return persons;
     }
 
     public boolean isValidName(String name){
@@ -35,11 +37,11 @@ public class Registration {
 
     public boolean isValidTajCode(String tajCode){
         int sum = Character.getNumericValue(tajCode.charAt(0));
-        for(int i=1; i<8; i+=2){
+        for(int i=1; i<8; i++){
             if(i%2!=0){
                 sum += Character.getNumericValue(tajCode.charAt(i))*3;
             }else sum += Character.getNumericValue(tajCode.charAt(i))*7;
-        }return sum%10 != Character.getNumericValue(tajCode.charAt(8));
+        }return sum%10 == Character.getNumericValue(tajCode.charAt(8));
     }
 
     public void registratePerson(){
@@ -49,8 +51,8 @@ public class Registration {
         String emailAddress;
         String emailAddress2;
         String tajCode;
-
         Registration registration = new Registration();
+        List<PersonForVacination> persons = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         do{
             System.out.println("Add name: ");
@@ -89,7 +91,8 @@ public class Registration {
         }
         while(registration.isValidTajCode(tajCode));
 
-        Registration registration1 = new Registration(new PersonForVacination(name,zipCode,age,emailAddress,tajCode));
+        persons.add(new PersonForVacination(name,zipCode,age,emailAddress,tajCode));
+        new CovidDao().writeListToDatabase(persons);
     }
 
 

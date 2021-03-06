@@ -1,10 +1,22 @@
 package covid;
 
+import org.mariadb.jdbc.MariaDbDataSource;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
 
     public void writeMenu(){
+        MariaDbDataSource dataSource= new MariaDbDataSource();
+        try {
+            dataSource.setUrl("jdbc:mariadb://localhost:3306/covid?useUnicode=true");
+            dataSource.setUser("covid");
+            dataSource.setPassword("covid");
+        } catch (SQLException sqlException) {
+            throw new IllegalStateException("Can not find database");
+        }
+
         System.out.println("*** Vacination process ***");
         System.out.println("***  Choose one number ***");
         System.out.println(" 1. Registration");

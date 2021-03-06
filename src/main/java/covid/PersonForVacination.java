@@ -36,5 +36,8 @@ public class PersonForVacination {
         return tajCode;
     }
 
-
+    @Override
+    public String toString() {
+        return "{" +"name= " + name + ", zipCode= " + zipCode + ", age= " + age +", emailAddress= " + emailAddress + ", tajCode= " + tajCode+'}';
+    }
 }
