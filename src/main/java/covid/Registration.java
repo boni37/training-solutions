@@ -24,7 +24,10 @@ public class Registration {
     }
 
     public boolean isValidZipCode(String zipCode){
-        return zipCode.isBlank();
+        if(zipCode.isBlank()) return true;
+        String result = new CovidDao().existZipCode(zipCode);
+        System.out.println(result);
+        return (result.equals("ZIP does not exist."));
     }
 
     public boolean isValidAge(int age){
@@ -36,11 +39,11 @@ public class Registration {
     }
 
     public boolean isValidTajCode(String tajCode){
-        int sum = Character.getNumericValue(tajCode.charAt(0))*7;
+        int sum = Character.getNumericValue(tajCode.charAt(0))*3;
         for(int i=1; i<8; i++){
             if(i%2 != 0){
-                sum += Character.getNumericValue(tajCode.charAt(i))*3;
-            }else sum += Character.getNumericValue(tajCode.charAt(i))*7;
+                sum += Character.getNumericValue(tajCode.charAt(i))*7;
+            }else sum += Character.getNumericValue(tajCode.charAt(i))*3;
         }return (sum%10) != Character.getNumericValue(tajCode.charAt(8));
     }
 

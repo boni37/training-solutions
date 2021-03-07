@@ -1,6 +1,9 @@
 package covid;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -11,13 +14,12 @@ public class GenerateTajFromFile {
     private List<PersonForVacination> personForVacinationList = new ArrayList<>();
 
     public String generateTajCode(String tajCode){
-        int sum = Character.getNumericValue(tajCode.charAt(0))*7;
+        int sum = Character.getNumericValue(tajCode.charAt(0))*3;
         for(int i = 1; i<8; i++){
             if(i%2!=0){
-                sum += Character.getNumericValue(tajCode.charAt(i))*3;
-            }else sum += Character.getNumericValue(tajCode.charAt(i))*7;
+                sum += Character.getNumericValue(tajCode.charAt(i))*7;
+            }else sum += Character.getNumericValue(tajCode.charAt(i))*3;
         }
-        System.out.println(sum%10);
         String taj = tajCode + sum%10;
         return taj;
     }
@@ -54,5 +56,6 @@ public class GenerateTajFromFile {
         List<PersonForVacination> personForVacinationList = new ArrayList<>();
         readFromFile(personForVacinationList);
         writeToFile(personForVacinationList);
+
     }
 }

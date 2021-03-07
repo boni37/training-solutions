@@ -2,9 +2,7 @@ package covid;
 
 import org.mariadb.jdbc.MariaDbDataSource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class CovidDao {
@@ -16,6 +14,24 @@ public class CovidDao {
 
     public CovidDao(MariaDbDataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public String existZipCode(String zipcode){
+        try {
+            MariaDbDataSource dataSource = initializeDataSource();
+            Connection conn = dataSource.getConnection();
+            PreparedStatement stmt = conn.prepareStatement("select city from cities where zip = ?");
+            stmt.setString(1,zipcode);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                String city = rs.getString("city");
+                return city;
+            }
+            else return "ZIP does not exist.";
+        }
+        catch (SQLException sqlException) {
+            throw new IllegalStateException("Can not connect",sqlException);
+        }
     }
 
     public void writeListToDatabase(List<PersonForVacination> personForVacinationList){
