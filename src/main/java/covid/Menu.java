@@ -28,6 +28,7 @@ public class Menu {
         System.out.println();
         Scanner scanner = new Scanner(System.in);
         int item = scanner.nextInt();
+        scanner.nextLine();
         switch (item) {
             case 1: {
                new Registration().registratePerson();
@@ -38,6 +39,10 @@ public class Menu {
                 break;
             }
             case 3: {
+                System.out.println("Add zip code");
+                String zip = scanner.nextLine();
+                System.out.println(new GenerateFileByZipCode().generatedListForVaccination(zip));
+                break;
             }
             case 4: {
             }

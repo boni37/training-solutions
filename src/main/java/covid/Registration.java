@@ -58,38 +58,38 @@ public class Registration {
         List<PersonForVacination> persons = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         do{
-            System.out.println("Add name: ");
+            System.out.print("Add name: ");
             name = scanner.nextLine();
         }
         while(registration.isValidName(name));
 
         do{
-            System.out.println("ZIP code: ");
+            System.out.print("ZIP code: ");
             zipCode = scanner.nextLine();
         }
         while(registration.isValidZipCode(zipCode));
 
         do{
-        System.out.println("Add age: ");
+        System.out.print("Add age: ");
         age = scanner.nextInt();
         scanner.nextLine();
         }
         while(registration.isValidAge(age));
 
         do {
-            System.out.println("Add e-mail: ");
+            System.out.print("Add e-mail: ");
             emailAddress = scanner.nextLine();
         }
         while(registration.isValidEmail(emailAddress));
 
         do {
-            System.out.println("Repeat e-mail: ");
+            System.out.print("Repeat e-mail: ");
             emailAddress2 = scanner.nextLine();
         }
         while(!emailAddress.equals(emailAddress2));
 
         do{
-            System.out.println("Add TAJ code: ");
+            System.out.print("Add TAJ code: ");
             tajCode = scanner.nextLine();
         }
         while(registration.isValidTajCode(tajCode));
