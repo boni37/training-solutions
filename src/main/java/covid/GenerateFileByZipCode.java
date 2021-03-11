@@ -12,6 +12,7 @@ import java.util.List;
 public class GenerateFileByZipCode {
 
     public void generatedListForVaccination(String zipCode){
+        String cityName = new CovidDao().existZipCode(zipCode);
         List<String> result = new CovidDao().generateListFromData(zipCode);
         List<String> listOfVaccinations = new ArrayList<>();
         LocalTime time = LocalTime.of(7,30);
@@ -20,7 +21,7 @@ public class GenerateFileByZipCode {
             String line = time.toString()+"  "+result.get(i)+"\n";
             listOfVaccinations.add(line);
         }
-        String filename = zipCode +"_"+ LocalDate.now()+ ".txt";
+        String filename = zipCode +"_"+cityName +"_" + LocalDate.now()+ ".txt";
         try (BufferedWriter writer = Files.newBufferedWriter(Path.of(filename))){
             for(String list:listOfVaccinations){
                 writer.write(list);
