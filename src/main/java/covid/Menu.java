@@ -41,7 +41,7 @@ public class Menu {
             case 3: {
                 System.out.println("Add zip code");
                 String zip = scanner.nextLine();
-                System.out.println(new GenerateFileByZipCode().generatedListForVaccination(zip));
+                new GenerateFileByZipCode().generatedListForVaccination(zip);
                 break;
             }
             case 4: {
