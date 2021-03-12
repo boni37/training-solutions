@@ -3,19 +3,20 @@ package covid;
 import org.mariadb.jdbc.MariaDbDataSource;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Menu {
 
-    public void writeMenu(){
-        MariaDbDataSource dataSource= new MariaDbDataSource();
-        try {
-            dataSource.setUrl("jdbc:mariadb://localhost:3306/covid?useUnicode=true");
-            dataSource.setUser("covid");
-            dataSource.setPassword("covid");
-        } catch (SQLException sqlException) {
-            throw new IllegalStateException("Can not find database");
-        }
+    public void writeMenu() {
+//        MariaDbDataSource dataSource= new MariaDbDataSource();
+//        try {
+//            dataSource.setUrl("jdbc:mariadb://localhost:3306/covid?useUnicode=true");
+//            dataSource.setUser("covid");
+//            dataSource.setPassword("covid");
+//        } catch (SQLException sqlException) {
+//            throw new IllegalStateException("Can not find database");
+//        }
 
         System.out.println("*** Vacination process ***");
         System.out.println("***  Choose one number ***");
@@ -45,6 +46,8 @@ public class Menu {
                 break;
             }
             case 4: {
+                new Vacination().vaccinationProcess();
+                break;
             }
             case 5: {
             }
