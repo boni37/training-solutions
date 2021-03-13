@@ -10,7 +10,7 @@ public class VacinationAborted {
         String taj;
         String citizen_id;
         String dateOfVaccination;
-        String vaccineType;
+        String reason;
         System.out.println("*** Vaccination process ***");
         do {
             System.out.print("Add TAJ: ");
@@ -19,8 +19,8 @@ public class VacinationAborted {
         } while (citizen_id == null);
         System.out.print("Add date /yyyy-mm-dd/ ");
         dateOfVaccination = scanner.nextLine();
-        System.out.print("Add reason of abortion :  ");
-        vaccineType = scanner.nextLine();
-        new CovidDao().writeVaccinationToDatabase(citizen_id, dateOfVaccination, "Aborted", "", "");
+        System.out.print("Add reason of cancellation :  ");
+        reason = scanner.nextLine();
+        new CovidDao().writeVaccinationToDatabase(citizen_id, dateOfVaccination, "Canceled", reason, "");
     }
 }
