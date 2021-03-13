@@ -6,6 +6,8 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class CovidDao {
 
@@ -35,13 +37,33 @@ public class CovidDao {
                 generatedList.add(genLine);
             }
 
+        } catch (SQLException sqlException) {
+            throw new IllegalStateException("Can not connect", sqlException);
         }
-        catch (SQLException sqlException) {
-            throw new IllegalStateException("Can not connect",sqlException);
-        }return generatedList;
+        return generatedList;
     }
 
-    public void zipListToDatabase(List<GenerateCitiesFromFile.City> cityList){
+    public Map<String, List<Integer>> generateMapFromData() {
+        Map<String, List<Integer>> vaccinationReport = new TreeMap<>();
+        try {
+            Connection conn = initializeDataSource().getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT zip, COUNT(vaccinations.citizen_id) numberOfVaccination FROM citizen left JOIN vaccinations ON citizen.citizen_id = vaccinations.citizen_id GROUP BY citizen.citizen_id ORDER BY zip,numberOfVaccination");
+            while (rs.next()) {
+                String zip = rs.getString("zip");
+                Integer count = rs.getInt("numberOfVaccination");
+                if (!vaccinationReport.containsKey(zip)) {
+                    vaccinationReport.put(zip, new ArrayList<>());
+                }
+                vaccinationReport.get(zip).add(count);
+            }
+        } catch (SQLException sqlException) {
+            throw new IllegalStateException("Can not connect", sqlException);
+        }
+        return vaccinationReport;
+    }
+
+    public void zipListToDatabase(List<GenerateCitiesFromFile.City> cityList) {
         try {
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("insert into cities(zip,city) values (?,?)");
