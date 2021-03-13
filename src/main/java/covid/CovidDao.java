@@ -21,7 +21,6 @@ public class CovidDao {
     public List<String> generateListFromData(String zipcode){
         List<String> generatedList = new ArrayList<>();
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("select citizen_name, zip, age, email, taj from citizen where zip = ? order by age, citizen_name limit 16");
             stmt.setString(1, zipcode);
@@ -44,7 +43,6 @@ public class CovidDao {
 
     public void zipListToDatabase(List<GenerateCitiesFromFile.City> cityList){
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("insert into cities(zip,city) values (?,?)");
             for (GenerateCitiesFromFile.City city : cityList) {
@@ -61,7 +59,6 @@ public class CovidDao {
 
     public String existZipCode(String zipcode){
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("select city from cities where zip = ?");
             stmt.setString(1, zipcode);
@@ -77,7 +74,6 @@ public class CovidDao {
 
     public String existTajCode(String taj) {
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("select citizen_id from citizen where taj = ?");
             stmt.setString(1, taj);
@@ -93,7 +89,6 @@ public class CovidDao {
 
     public void writeListToDatabase(List<PersonForVacination> personForVacinationList) {
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("insert into citizen(citizen_name,zip,age,email,taj) values (?,?,?,?,?)");
             for (PersonForVacination person : personForVacinationList) {
@@ -111,7 +106,6 @@ public class CovidDao {
 
     public void writeVaccinationToDatabase(String citizen_id, String vaccinationDate, String status, String note, String vaccination_type) {
         try {
-//            MariaDbDataSource dataSource = initializeDataSource();
             Connection conn = initializeDataSource().getConnection();
             PreparedStatement stmt = conn.prepareStatement("insert into vaccinations(citizen_id,vaccination_date,status,note,vaccination_type) values (?,?,?,?,?)");
             stmt.setString(1, citizen_id);

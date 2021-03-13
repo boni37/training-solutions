@@ -46,10 +46,12 @@ public class Menu {
                 break;
             }
             case 4: {
-                new Vacination().vaccinationProcess();
+                new Vacination().vaccinationFulfilled();
                 break;
             }
             case 5: {
+                new VacinationAborted().vaccinationAborted();
+                break;
             }
             case 6: {
             }
