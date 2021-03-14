@@ -13,6 +13,10 @@ public class CovidDao {
 
     private MariaDbDataSource dataSource = new MariaDbDataSource();
 
+    public static final String noVaccinated = "Not vaccinated";
+    public static final String oneVaccinated = "Got one vaccine";
+    public static final String twoVaccinated = "Got two vaccines";
+
     public CovidDao() {
     }
 
@@ -20,7 +24,7 @@ public class CovidDao {
         this.dataSource = dataSource;
     }
 
-    public List<String> generateListFromData(String zipcode){
+    public List<String> generateListFromData(String zipcode) {
         List<String> generatedList = new ArrayList<>();
         try {
             Connection conn = initializeDataSource().getConnection();
@@ -43,8 +47,12 @@ public class CovidDao {
         return generatedList;
     }
 
-    public Map<String, List<Integer>> generateMapFromData() {
-        Map<String, List<Integer>> vaccinationReport = new TreeMap<>();
+    public Map<String, List<EntryForList>> generateMapFromData() {
+        Map<String, List<EntryForList>> vaccinationReport = new TreeMap<>();
+        List<EntryForList> entryForList = new ArrayList<>();
+        int numOfNull = 0;
+        int numOfOne = 0;
+        int numOfTwo = 0;
         try {
             Connection conn = initializeDataSource().getConnection();
             Statement stmt = conn.createStatement();
@@ -54,8 +62,24 @@ public class CovidDao {
                 Integer count = rs.getInt("numberOfVaccination");
                 if (!vaccinationReport.containsKey(zip)) {
                     vaccinationReport.put(zip, new ArrayList<>());
+                    vaccinationReport.get(zip).add(0, new EntryForList(noVaccinated, 1));
+                    vaccinationReport.get(zip).add(1, new EntryForList(oneVaccinated, 0));
+                    vaccinationReport.get(zip).add(2, new EntryForList(twoVaccinated, 0));
+                } else {
+                    if (count == 0) {
+                        int sum0 = vaccinationReport.get(zip).get(0).getNumberOfRecord();
+                        vaccinationReport.get(zip).get(0).setNumberOfRecord(sum0 + 1);
+                    } else if (count == 1) {
+                        int sum1 = vaccinationReport.get(zip).get(1).getNumberOfRecord();
+                        vaccinationReport.get(zip).get(1).setNumberOfRecord(sum1 + 1);
+                    } else if (count == 2) {
+                        int sum2 = vaccinationReport.get(zip).get(2).getNumberOfRecord();
+                        vaccinationReport.get(zip).get(2).setNumberOfRecord(sum2 + 1);
+                    }
+
                 }
-                vaccinationReport.get(zip).add(count);
+
+
             }
         } catch (SQLException sqlException) {
             throw new IllegalStateException("Can not connect", sqlException);

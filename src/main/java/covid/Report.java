@@ -14,7 +14,7 @@ import java.util.TreeMap;
 public class Report {
 
     public void generatedReportForVaccination() {
-        Map<String, List<Integer>> vaccinationReport = new TreeMap<>();
+        Map<String, List<EntryForList>> vaccinationReport = new TreeMap<>();
         vaccinationReport = new CovidDao().generateMapFromData();
         System.out.println(vaccinationReport.toString());
     }
